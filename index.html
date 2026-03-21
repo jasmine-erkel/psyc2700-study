@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PSYC 2700 -- Child Psychology Study Guide</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="header__title">PSYC 2700 <span class="header__subtitle">Child Psychology</span></h1>
+    <div class="header__actions">
+      <button id="btn-quiz-mode" class="btn btn--outline">Quiz Mode</button>
+    </div>
+  </header>
+
+  <nav class="tab-bar" id="tab-bar">
+    <!-- Week tabs rendered by app.js -->
+  </nav>
+
+  <div id="quiz-controls" class="quiz-controls hidden">
+    <div class="quiz-controls__path">
+      <button id="btn-cumulative" class="btn btn--primary">Cumulative Quiz (40 Qs)</button>
+    </div>
+    <span class="quiz-controls__divider">or</span>
+    <div class="quiz-controls__path">
+      <span class="quiz-controls__hint">Select weeks above</span>
+      <label class="quiz-controls__label">
+        <select id="quiz-count" class="quiz-controls__select">
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="20">20</option>
+          <option value="0">All</option>
+        </select>
+        questions
+      </label>
+      <button id="btn-start-quiz" class="btn btn--secondary">Start</button>
+    </div>
+  </div>
+
+  <main class="content" id="content">
+    <!-- Content rendered by app.js / quiz.js -->
+    <div class="empty-state">
+      <p>Select a week to view its content.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Based on <em>How Children Develop</em>, Canadian 6th Ed. -- Siegler, Saffran, Graham, Gershoff, Eisenberg</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
