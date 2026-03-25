@@ -283,8 +283,15 @@
       extraQs = allForWeeks.filter((q) => isTextbookQuestion(q));
     }
 
+    // Get the actual question objects for missed answers
+    const missedIds = new Set(missed.map((a) => a.questionId));
+    const missedQuestions = currentQuestions.filter((q) => missedIds.has(q.id));
+
     html += '<div class="results__actions">';
-    html += '<button class="btn btn--primary" id="btn-retake">Retake Quiz</button>';
+    if (missedQuestions.length > 0) {
+      html += `<button class="btn btn--primary" id="btn-retry-missed">Retry Missed (${missedQuestions.length})</button>`;
+    }
+    html += '<button class="btn btn--secondary" id="btn-retake">Retake All</button>';
     if (extraQs.length > 0) {
       html += `<button class="btn btn--secondary" id="btn-more-practice">More Practice (${extraQs.length} extra questions)</button>`;
     }
@@ -292,6 +299,17 @@
     html += "</div></div>";
 
     content.innerHTML = html;
+
+    const btnRetryMissed = document.getElementById("btn-retry-missed");
+    if (btnRetryMissed) {
+      btnRetryMissed.addEventListener("click", () => {
+        currentQuestions = shuffle(missedQuestions);
+        currentIndex = 0;
+        answers = [];
+        answered = false;
+        renderQuestion();
+      });
+    }
 
     document.getElementById("btn-retake").addEventListener("click", () => {
       currentQuestions = shuffle(currentQuestions);
