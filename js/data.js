@@ -1482,5 +1482,47 @@ const QUESTIONS = [
     choices: ["Sociocultural theory", "Core knowledge theory", "Dynamic Systems theory", "Overlapping Waves theory"],
     answer: 3,
     explanation: "Overlapping Waves theory (Siegler) proposes that children use multiple strategies at any given age, with the frequency of each strategy changing over time like overlapping waves, rather than abruptly shifting from one stage to the next."
+  },
+  // --- Quiz 7: Conceptual Development I (Week 7) ---
+  {
+    id: "cq61",
+    weekIds: [7],
+    type: "mc",
+    question: "Young children typically divide objects into 3 categories. Which of the following is NOT one of those categories?",
+    choices: ["Inanimate objects", "Other animals", "People", "Plants"],
+    answer: 3,
+    explanation: "Young children typically categorize the world into three groups: people, other animals, and inanimate objects. Plants are not intuitively categorized as a separate group by young children."
+  },
+  {
+    id: "cq62",
+    weekIds: [7],
+    type: "mc",
+    question: "Most preschoolers (and adults) believe that living things have an essence inside them that makes them what they are, e.g., dogs have a 'dogness' that makes them members of one category and makes them behave in certain ways. This belief is known as:",
+    choices: ["Empiricism", "Egocentrism", "Enthusiasm", "Essentialism"],
+    answer: 3,
+    explanation: "Essentialism is the belief that living things have an innate, unchangeable essence that makes them what they are. Children as young as preschool age believe that a dog has an internal 'dogness' that determines its category membership and behavior."
+  },
+  {
+    id: "cq63",
+    weekIds: [7],
+    type: "mc",
+    question: "Baillargeon's work demonstrated that infants:",
+    choices: [
+      "have a naive understanding of how plants grow",
+      "don't understand object permanence",
+      "don't understand how plants grow",
+      "have a naive understanding of objects"
+    ],
+    answer: 3,
+    explanation: "Renée Baillargeon's violation-of-expectation studies showed that infants have a naive (intuitive) understanding of objects — including that objects continue to exist when hidden (object permanence) and follow basic physical laws — much earlier than Piaget proposed."
+  },
+  {
+    id: "cq64",
+    weekIds: [7],
+    type: "mc",
+    question: "Children's category hierarchies do NOT include which of the following:",
+    choices: ["Subordinate", "Basic", "Ordinate", "Superordinate"],
+    answer: 2,
+    explanation: "Category hierarchies include three levels: superordinate (e.g., animal), basic (e.g., dog), and subordinate (e.g., poodle). 'Ordinate' is not a level in category hierarchies."
   }
 ];
