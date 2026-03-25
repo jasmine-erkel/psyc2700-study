@@ -257,9 +257,8 @@
       alert("Select at least one week.");
       return;
     }
-    const maxQ = parseInt(document.getElementById("quiz-count").value) || 0;
     if (typeof startQuiz === "function") {
-      startQuiz(Array.from(selectedWeekIds), maxQ);
+      startQuiz(Array.from(selectedWeekIds), 0);
     }
   });
 
@@ -268,7 +267,7 @@
     allWeeks.forEach(w => selectedWeekIds.add(w.id));
     renderTabs();
     if (typeof startQuiz === "function") {
-      startQuiz(allWeeks.map(w => w.id), 40);
+      startQuiz(allWeeks.map(w => w.id), 0);
     }
   });
 
