@@ -9,6 +9,12 @@
   let currentIndex = 0;
   let answers = []; // { questionId, selectedAnswer, isCorrect }
   let answered = false;
+  let quizWeekIds = [];
+  let quizMaxQuestions = 0;
+
+  function isCourseQuestion(q) {
+    return q.id.startsWith("cq");
+  }
 
   function shuffle(arr) {
     const a = [...arr];
@@ -21,17 +27,27 @@
 
   // --- Start quiz (called from app.js) ---
   window.startQuiz = function (weekIds, maxQuestions) {
-    const filtered = QUESTIONS.filter((q) =>
+    quizWeekIds = weekIds;
+    quizMaxQuestions = maxQuestions;
+
+    const allForWeeks = QUESTIONS.filter((q) =>
       q.weekIds.some((wid) => weekIds.includes(wid))
     );
+    const courseQs = allForWeeks.filter((q) => isCourseQuestion(q));
 
-    if (filtered.length === 0) {
+    // If no course questions exist for these weeks, use all questions
+    const startPool = courseQs.length > 0 ? courseQs : allForWeeks;
+    launchQuizWith(startPool, maxQuestions);
+  };
+
+  function launchQuizWith(questions, maxQuestions) {
+    if (questions.length === 0) {
       content.innerHTML =
         '<div class="empty-state"><p>No questions available for the selected weeks yet.</p></div>';
       return;
     }
 
-    let pool = shuffle(filtered);
+    let pool = shuffle(questions);
     if (maxQuestions > 0 && maxQuestions < pool.length) {
       pool = pool.slice(0, maxQuestions);
     }
@@ -40,7 +56,7 @@
     answers = [];
     answered = false;
     renderQuestion();
-  };
+  }
 
   // --- Render a question ---
   function renderQuestion() {
@@ -235,8 +251,17 @@
       html += "</div>";
     }
 
+    // Check if extra practice questions are available
+    const showingCourse = currentQuestions.some((q) => isCourseQuestion(q));
+    const extraQs = QUESTIONS.filter(
+      (q) => !isCourseQuestion(q) && q.weekIds.some((wid) => quizWeekIds.includes(wid))
+    );
+
     html += '<div class="results__actions">';
     html += '<button class="btn btn--primary" id="btn-retake">Retake Quiz</button>';
+    if (showingCourse && extraQs.length > 0) {
+      html += `<button class="btn btn--secondary" id="btn-more-practice">More Practice (${extraQs.length} extra questions)</button>`;
+    }
     html += '<button class="btn btn--secondary" id="btn-exit-quiz">Exit Quiz</button>';
     html += "</div></div>";
 
@@ -248,6 +273,13 @@
       answers = [];
       renderQuestion();
     });
+
+    const btnMore = document.getElementById("btn-more-practice");
+    if (btnMore) {
+      btnMore.addEventListener("click", () => {
+        launchQuizWith(extraQs, 0);
+      });
+    }
 
     document.getElementById("btn-exit-quiz").addEventListener("click", () => {
       if (typeof window.appExitQuiz === "function") {
