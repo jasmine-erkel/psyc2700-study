@@ -1524,5 +1524,65 @@ const QUESTIONS = [
     choices: ["Subordinate", "Basic", "Ordinate", "Superordinate"],
     answer: 2,
     explanation: "Category hierarchies include three levels: superordinate (e.g., animal), basic (e.g., dog), and subordinate (e.g., poodle). 'Ordinate' is not a level in category hierarchies."
+  },
+  // --- Quiz 8: Autism - Guest Lecture Dr. Zoe Robertson (Week 9) ---
+  {
+    id: "cq65",
+    weekIds: [9],
+    type: "mc",
+    question: "According to your textbook, autistic children have particular difficulty with Theory of Mind. In her guest lecture, Dr. Robertson presented evidence that autistic children are ____ to pass Theory of Mind tests when there is an incentive for getting the answer right (e.g., a reward).",
+    choices: ["more likely", "less likely", "equally likely", "unlikely"],
+    answer: 0,
+    explanation: "Dr. Robertson's lecture presented evidence that autistic children are more likely to pass Theory of Mind tests when there is an incentive (reward) for getting the answer right, suggesting their difficulty may be partly about motivation rather than a complete inability."
+  },
+  {
+    id: "cq66",
+    weekIds: [9],
+    type: "mc",
+    question: "In Dr. Robertson's guest lecture, we learned that the original article arguing that the MMR vaccine causes autism was _____ and has since been _____.",
+    choices: [
+      "doubted; proven right",
+      "badly written; edited",
+      "fraudulent; retracted",
+      "excellent; supported"
+    ],
+    answer: 2,
+    explanation: "Andrew Wakefield's 1998 Lancet paper linking the MMR vaccine to autism was found to be fraudulent — data was falsified — and was retracted by the journal in 2010. Wakefield lost his medical license."
+  },
+  {
+    id: "cq67",
+    weekIds: [9],
+    type: "short",
+    question: "The most recent (2025) report by the CDC estimates prevalence of Autism to be 1 in _____ children.",
+    answer: "31",
+    explanation: "The CDC's 2025 report estimates that 1 in 31 children are diagnosed with autism, reflecting both increased awareness/screening and broadened diagnostic criteria over time."
+  },
+  {
+    id: "cq68",
+    weekIds: [9],
+    type: "mc",
+    question: "Current research suggests that autism is caused by:",
+    choices: [
+      "insensitive parenting",
+      "vaccines",
+      "Tylenol or similar medicines during pregnancy",
+      "genetic factors"
+    ],
+    answer: 3,
+    explanation: "Current research points to genetic factors as the primary cause of autism. Twin studies show high heritability, and many genes have been implicated. The discredited theories about vaccines and parenting have no scientific support."
+  },
+  {
+    id: "cq69",
+    weekIds: [9],
+    type: "mc",
+    question: "In the study by Granieri and colleagues (2020), how did atypical behaviors (e.g., atypical vocalizations, atypical eye contact) influence autistic children's evaluations of their autistic peers?",
+    choices: [
+      "Children with more atypical behaviors were evaluated more negatively",
+      "Children with more atypical behaviors were evaluated more positively",
+      "Children with more atypical behaviors were evaluated both positively and negatively",
+      "Atypical behaviors had no effect on how the children were evaluated"
+    ],
+    answer: 1,
+    explanation: "Granieri et al. (2020) found that autistic children actually evaluated peers with more atypical behaviors more positively, suggesting autistic children may be more accepting of or drawn to behaviors that neurotypical peers might judge negatively."
   }
 ];
