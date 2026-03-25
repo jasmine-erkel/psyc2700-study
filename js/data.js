@@ -1440,5 +1440,47 @@ const QUESTIONS = [
     choices: ["Habituation", "Statistical learning", "Operant conditioning", "Classical conditioning"],
     answer: 1,
     explanation: "Statistical learning is the ability to detect regularities and patterns in sensory input. Infants track the probability that certain sounds follow others, which helps them segment words from continuous speech."
+  },
+  // --- Quiz 6: Cognitive Development II (Week 6) ---
+  {
+    id: "cq57",
+    weekIds: [6],
+    type: "mc",
+    question: "The word 'dynamic' in Dynamic Systems theory indicates that:",
+    choices: [
+      "development occurs in clearly defined stages",
+      "development is marked by continual change",
+      "developmental change cannot be studied scientifically",
+      "development is driven primarily by genetic factors"
+    ],
+    answer: 1,
+    explanation: "Dynamic Systems theory emphasizes that development is a process of continual change, where multiple components interact and self-organize over time rather than progressing through fixed stages."
+  },
+  {
+    id: "cq58",
+    weekIds: [6],
+    type: "mc",
+    question: "______ theory emphasizes that children's development is a product of their surrounding culture and that children are active contributors to their own development through their interactions with members of their community.",
+    choices: ["Dynamic Systems", "Core knowledge", "Sociocultural", "Information processing"],
+    answer: 2,
+    explanation: "Sociocultural theory (Vygotsky) emphasizes that cognitive development is shaped by cultural context and social interactions. Children learn through guided participation with more knowledgeable members of their community."
+  },
+  {
+    id: "cq59",
+    weekIds: [6],
+    type: "mc",
+    question: "The idea that children have some innate, or inborn, knowledge about the way the world works is associated with which theoretical perspective?",
+    choices: ["Sociocultural theory", "Dynamic Systems theory", "Core knowledge theory", "Overlapping Waves theory"],
+    answer: 2,
+    explanation: "Core knowledge theory proposes that infants are born with innate knowledge systems for understanding basic aspects of the world, such as objects, numbers, faces, and spatial relationships."
+  },
+  {
+    id: "cq60",
+    weekIds: [6],
+    type: "mc",
+    question: "Piaget's theory depicted children of a given age as using one particular strategy to solve problems. In contrast, ______ suggests that children actually use a variety of strategies, similar to overlapping waves.",
+    choices: ["Sociocultural theory", "Core knowledge theory", "Dynamic Systems theory", "Overlapping Waves theory"],
+    answer: 3,
+    explanation: "Overlapping Waves theory (Siegler) proposes that children use multiple strategies at any given age, with the frequency of each strategy changing over time like overlapping waves, rather than abruptly shifting from one stage to the next."
   }
 ];
