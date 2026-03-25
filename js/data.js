@@ -239,6 +239,17 @@ const WEEKS = [
 ];
 
 // eslint-disable-next-line no-unused-vars
+const MIDTERM_IDS = new Set([
+  "cq5", "cq6",
+  "cq12", "cq13", "cq14", "cq15", "cq16", "cq17", "cq18", "cq19",
+  "cq20", "cq21", "cq22", "cq23", "cq24", "cq25",
+  "cq30", "cq31", "cq32", "cq33", "cq34", "cq35", "cq36",
+  "cq40", "cq41", "cq42", "cq43", "cq44",
+  "cq45", "cq46", "cq47", "cq48", "cq49", "cq50", "cq51", "cq52",
+  "cq53", "cq54", "cq55", "cq56"
+]);
+
+// eslint-disable-next-line no-unused-vars
 const QUESTIONS = [
   // --- Week 1 ---
   {
@@ -1165,6 +1176,20 @@ const QUESTIONS = [
     explanation: "Behavior geneticists use both twin studies (comparing monozygotic vs. dizygotic twins) and adoption studies to estimate the relative contributions of genes and environment to traits."
   },
   {
+    id: "cq70",
+    weekIds: [3],
+    type: "mc",
+    question: "In her guest lecture, Dr. Krol showed us evidence that methylation of infants' oxytocin receptor gene (OXTR) at 18 months is predicted by:",
+    choices: [
+      "infants' motor abilities at 5 months",
+      "the quality of maternal behavior at 5 months",
+      "the number of siblings the infant has",
+      "infants' weight at 5 months"
+    ],
+    answer: 1,
+    explanation: "Dr. Krol's research showed that the quality of maternal behavior at 5 months predicted epigenetic changes (methylation) in the infant's oxytocin receptor gene by 18 months, demonstrating how early caregiving experiences can influence gene expression."
+  },
+  {
     id: "cq30",
     weekIds: [3],
     type: "mc",
@@ -1270,6 +1295,34 @@ const QUESTIONS = [
     choices: ["Ethnicity", "Toxicity", "Elasticity", "Plasticity"],
     answer: 3,
     explanation: "Plasticity refers to the brain's ability to be shaped and changed by experience. The young brain is especially plastic, which is why early experiences are so important."
+  },
+  {
+    id: "cq71",
+    weekIds: [3],
+    type: "mc",
+    question: "The following is NOT a method used to study brain development and functioning:",
+    choices: [
+      "Electrophysiological recordings (EEGs, ERPs)",
+      "Magnetic resonance imaging (MRI and fMRI)",
+      "Near Infrared Spectroscopy (NIRS and fNIRS)",
+      "All of the above are methods used to study brain development and functioning"
+    ],
+    answer: 3,
+    explanation: "EEGs/ERPs, MRI/fMRI, and NIRS/fNIRS are all valid methods used to study brain development. EEGs measure electrical activity, MRI provides structural/functional images, and NIRS measures blood oxygenation using infrared light."
+  },
+  {
+    id: "cq72",
+    weekIds: [3],
+    type: "mc",
+    question: "Based on Olivia Allison's guest lecture, which of the following is NOT a fundamental question of developmental cognitive neuroscience?",
+    choices: [
+      "What does it mean to be human?",
+      "Why and how is learning enhanced during certain periods in development?",
+      "How similar is artificial intelligence to human intelligence?",
+      "What are the interrelations between developmental changes in the brain and developmental changes in behavioral and cognitive abilities?"
+    ],
+    answer: 2,
+    explanation: "Developmental cognitive neuroscience focuses on understanding human brain development, sensitive periods for learning, and brain-behavior relationships — not comparisons between AI and human intelligence."
   },
   {
     id: "cq40",

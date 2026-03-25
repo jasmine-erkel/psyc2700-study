@@ -11,9 +11,18 @@
   let answered = false;
   let quizWeekIds = [];
   let quizMaxQuestions = 0;
+  let quizMode = "week"; // "week" | "cumulative"
 
-  function isCourseQuestion(q) {
-    return q.id.startsWith("cq");
+  function isMidtermQuestion(q) {
+    return MIDTERM_IDS.has(q.id);
+  }
+
+  function isQuizQuestion(q) {
+    return q.id.startsWith("cq") && !isMidtermQuestion(q);
+  }
+
+  function isTextbookQuestion(q) {
+    return !q.id.startsWith("cq");
   }
 
   function shuffle(arr) {
@@ -26,17 +35,27 @@
   }
 
   // --- Start quiz (called from app.js) ---
-  window.startQuiz = function (weekIds, maxQuestions) {
+  // mode: "week" = quiz questions first, "cumulative" = midterm questions first
+  window.startQuiz = function (weekIds, maxQuestions, mode) {
     quizWeekIds = weekIds;
     quizMaxQuestions = maxQuestions;
+    quizMode = mode || "week";
 
     const allForWeeks = QUESTIONS.filter((q) =>
       q.weekIds.some((wid) => weekIds.includes(wid))
     );
-    const courseQs = allForWeeks.filter((q) => isCourseQuestion(q));
 
-    // If no course questions exist for these weeks, use all questions
-    const startPool = courseQs.length > 0 ? courseQs : allForWeeks;
+    let startPool;
+    if (quizMode === "cumulative") {
+      // Cumulative: midterm questions first
+      startPool = allForWeeks.filter((q) => isMidtermQuestion(q));
+    } else {
+      // Individual week: quiz questions only (no midterm)
+      startPool = allForWeeks.filter((q) => isQuizQuestion(q));
+    }
+
+    // Fallback to all questions if no primary pool
+    if (startPool.length === 0) startPool = allForWeeks;
     launchQuizWith(startPool, maxQuestions);
   };
 
@@ -251,15 +270,22 @@
       html += "</div>";
     }
 
-    // Check if extra practice questions are available
-    const showingCourse = currentQuestions.some((q) => isCourseQuestion(q));
-    const extraQs = QUESTIONS.filter(
-      (q) => !isCourseQuestion(q) && q.weekIds.some((wid) => quizWeekIds.includes(wid))
+    // Determine extra practice questions based on quiz mode
+    const allForWeeks = QUESTIONS.filter(
+      (q) => q.weekIds.some((wid) => quizWeekIds.includes(wid))
     );
+    let extraQs;
+    if (quizMode === "cumulative") {
+      // After midterm: show everything else (quiz + textbook questions)
+      extraQs = allForWeeks.filter((q) => !isMidtermQuestion(q));
+    } else {
+      // After week quiz: show textbook questions only
+      extraQs = allForWeeks.filter((q) => isTextbookQuestion(q));
+    }
 
     html += '<div class="results__actions">';
     html += '<button class="btn btn--primary" id="btn-retake">Retake Quiz</button>';
-    if (showingCourse && extraQs.length > 0) {
+    if (extraQs.length > 0) {
       html += `<button class="btn btn--secondary" id="btn-more-practice">More Practice (${extraQs.length} extra questions)</button>`;
     }
     html += '<button class="btn btn--secondary" id="btn-exit-quiz">Exit Quiz</button>';

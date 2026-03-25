@@ -258,7 +258,7 @@
       return;
     }
     if (typeof startQuiz === "function") {
-      startQuiz(Array.from(selectedWeekIds), 0);
+      startQuiz(Array.from(selectedWeekIds), 0, "week");
     }
   });
 
@@ -267,7 +267,7 @@
     allWeeks.forEach(w => selectedWeekIds.add(w.id));
     renderTabs();
     if (typeof startQuiz === "function") {
-      startQuiz(allWeeks.map(w => w.id), 0);
+      startQuiz(allWeeks.map(w => w.id), 0, "cumulative");
     }
   });
 
