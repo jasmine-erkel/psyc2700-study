@@ -183,43 +183,9 @@ body {
   padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
   border-bottom: 1px solid #D5DFE8;
-}
-
-.quiz-controls__path {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.quiz-controls__divider {
-  font-size: 0.8rem;
-  color: #8A929A;
-  font-style: italic;
-}
-
-.quiz-controls__hint {
-  font-size: 0.85rem;
-  color: #5A6570;
-}
-
-.quiz-controls__label {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #3A4550;
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.quiz-controls__select {
-  font-family: inherit;
-  font-size: 0.85rem;
-  padding: 0.35rem 0.5rem;
-  border: 1.5px solid #D0D7DE;
-  border-radius: 6px;
-  background: #fff;
 }
 
 /* ===== CONTENT AREA ===== */
